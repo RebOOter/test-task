@@ -1,0 +1,17 @@
+<?php
+namespace Helper;
+
+use ParseCsv\Csv;
+
+// here you can define custom actions
+// all public methods declared in helper class will be available in $I
+
+class Functional extends \Codeception\Module
+{
+    public function parseCSV($filePath) {
+        $csv = new Csv();
+        $csv->offset = 1;
+        $csv->parse($filePath);
+        return $csv->data;
+    }
+}

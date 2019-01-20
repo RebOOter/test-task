@@ -1,0 +1,6 @@
+{
+    "require": {
+        "codeception/codeception": "^2.5",
+        "parsecsv/php-parsecsv": "^1.1"
+    }
+}
