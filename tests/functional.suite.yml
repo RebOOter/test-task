@@ -10,5 +10,10 @@ modules:
     enabled:
         # add a framework module here
         - \Helper\Functional
+        - Asserts
         - PhpBrowser:
               url: 'https://www.ultimate-guitar.com'
+              cookies:
+                cookie-seo:
+                  Name: test
+                  Value: seo
