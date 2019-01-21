@@ -60,7 +60,9 @@ class VideoPage extends BasePage
         //The tag <video> is not enough for testing preview. We should check that mouseOver script
         //change classes of containers for visibility of video
         $this->searchResult->getSelection($selection)->getVideo($id)->thumbContainerWithActiveVideo->waitForElement();
+        $this->searchResult->getSelection($selection)->getVideo($id)->thumbContainerWithActiveVideo->shown();
         $this->searchResult->getSelection($selection)->getVideo($id)->videoContainerWithActiveVideo->waitForElement();
+        $this->searchResult->getSelection($selection)->getVideo($id)->videoContainerWithActiveVideo->shown();
 
         return $this;
     }
