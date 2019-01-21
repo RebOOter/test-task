@@ -54,7 +54,12 @@ class VideoPage extends BasePage
     public function checkVideoPreview($id, $selection)
     {
         $this->searchResult->getSelection($selection)->getVideo($id)->videoPreview->waitForElement();
-        $this->searchResult->getSelection($selection)->getVideo($id)->thumbContainerWithActiveVideo->shown();
+        //Without this parameters video won't play
+        $this->searchResult->getSelection($selection)->getVideo($id)->videoPreview->isAutoplay();
+        $this->searchResult->getSelection($selection)->getVideo($id)->videoPreview->srcIsNotEmpty();
+        //The tag <video> is not enough for testing preview. We should check that mouseOver script
+        //change classes of containers for vissibility of video
+        $this->searchResult->getSelection($selection)->getVideo($id)->thumbContainerWithActiveVideo->waitForElement();
         $this->searchResult->getSelection($selection)->getVideo($id)->videoContainerWithActiveVideo->waitForElement();
 
         return $this;
