@@ -35,6 +35,7 @@ class SeoCest
      */
     protected function csvProvider()
     {
+        //For all green tests use seo_example.csv file
         $filePath = 'tests/_data/seo_example_wrong.csv';
 
         $csv = new Csv();
