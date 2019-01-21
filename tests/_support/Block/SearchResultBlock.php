@@ -13,7 +13,7 @@ class SearchResultBlock extends BaseElement
         parent::__construct($I, $locator);
 
         //Because we always have first 20 videos (1st page)
-        $this->selection[] = new SearchResultSelectionBlock($I, $locator . '/div[@role=\'list\']');
+        $this->selection[] = new SearchResultSelectionBlock($I, $locator . '/div[@role=\'list\'][1]');
     }
 
     /**
