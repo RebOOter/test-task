@@ -10,13 +10,22 @@ class SeoCest
      *
      * @dataProvider csvProvider
      */
-    public function checkSeo(FunctionalTester $I, \Codeception\Example $seo)
+    public function checkSeoTitle(FunctionalTester $I, \Codeception\Example $seo)
     {
-        //You could use this implementation instead of set up cookie in config file
-//        $I->setCookie('test', 'seo')
         $I->amOnUrl($seo['url']);
         $title = $I->grabTextFrom('title');
         $I->assertEquals($seo['title'], $title);
+    }
+
+    /**
+     * @param FunctionalTester $I
+     * @param \Codeception\Example $seo
+     *
+     * @dataProvider csvProvider
+     */
+    public function checkSeoMeta(FunctionalTester $I, \Codeception\Example $seo)
+    {
+        $I->amOnUrl($seo['url']);
         $description = $I->grabAttributeFrom('meta[name=\'description\']', 'content');
         $I->assertEquals($seo['meta description'], $description);
     }

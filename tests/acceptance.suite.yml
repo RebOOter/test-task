@@ -7,6 +7,9 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
+        - WebDriver:
+            url: https://yandex.ru
+            browser: chrome
+            host: 10.0.2.2
+            port: 4444
         - \Helper\Acceptance
